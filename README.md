@@ -1,10 +1,10 @@
 # congress-data-vis
 
-> Data visualizations using propublica&#39;s congress api
+> Data visualizations using propublica's congress api
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm run install
 

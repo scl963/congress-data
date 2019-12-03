@@ -5,22 +5,48 @@
   </nav>
 </template>
 
+<script>
+export default {
+  mounted() {
+    window.onscroll = function() {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 40 ||
+        document.documentElement.scrollTop > 40
+      ) {
+        document.getElementById("navbar").setAttribute("class", "collapsed");
+      } else {
+        document.getElementById("navbar").setAttribute("class", "expanded");
+      }
+    }
+  }
+};
+</script>
+
 <style lang="scss" scoped>
 #navbar {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  height: 40px;
+  height: 70px;
   position: fixed;
   top: 0;
+  width: 100%;
+
+  &.collapsed {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
+    background: white;
+    transition: all 0.2s ease;
+  }
 }
 
 .nav-link {
   color: black;
+  display: inline-block;
   font-size: 20px;
+  margin: 24px 15px;
   text-decoration: none;
-  margin: 10px 15px;
+  z-index: 2;
 
   &:hover {
     color: blue;

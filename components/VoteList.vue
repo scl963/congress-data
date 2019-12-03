@@ -45,14 +45,17 @@ export default {
 
 <style lang="scss" scoped>
 .list-container {
-  margin: 2%;
+  margin: 70px 2%;
 }
 
 .list-title {
+  font-size: 1.3rem;
   margin: 30px auto;
+  max-width: 340px;
   text-align: center;
   position: sticky;
-  top: 5px;
+  top: 15px;
+  z-index: 1;
 }
 
 .vote-list {

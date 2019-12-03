@@ -49,12 +49,12 @@ export default {
 }
 
 .list-title {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin: 30px auto;
   max-width: 340px;
   text-align: center;
   position: sticky;
-  top: 15px;
+  top: 23px;
   z-index: 1;
 }
 

@@ -15,7 +15,7 @@ export default {
       "https://api.propublica.org/congress/v1/house/votes/recent.json",
       {
         headers: {
-          "X-API-Key": "yiaMPHgFwJxJLjUGvFtCTx1Arnm31Q1lA0SBRjdK"
+          "X-API-Key": process.env.PROPUBLICA_API_KEY
         }
       }
     );

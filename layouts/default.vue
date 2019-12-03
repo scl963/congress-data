@@ -20,8 +20,6 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Work+Sans&display=swap");
-
 html {
   font-family: "Work Sans", sans-serif, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

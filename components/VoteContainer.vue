@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1 class="vote-title">{{ voteData.bill.title }}</h1>
+    <h1 class="vote-title">
+      {{ voteData.bill.title || voteData.description }}
+    </h1>
     <VoteVisualization :vote="voteData" />
     <PartisanshipMeter :vote="voteData" />
   </div>
@@ -30,8 +32,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
-  min-height: 100vh;
+  margin: 70px auto;
+  min-height: calc(100vh - 140px);
   text-align: center;
 }
 

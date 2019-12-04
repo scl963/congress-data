@@ -1,7 +1,8 @@
 <template>
   <div class="list-container">
     <h1 class="list-title">Recent {{ chamber }} Votes</h1>
-    <div class="vote-list">
+    <Table v-if="table" :votes="votes" />
+    <div v-else class="vote-list">
       <nuxt-link
         v-for="(vote, idx) in votes"
         :key="idx"
@@ -15,12 +16,22 @@
 </template>
 
 <script>
+import Table from "./Table";
+
 export default {
+  components: {
+    Table
+  },
   props: {
     voteData: {
       type: Object,
       default: () => {}
     }
+  },
+  data() {
+    return {
+      table: true
+    };
   },
   computed: {
     chamber() {
@@ -28,7 +39,9 @@ export default {
     },
     votes() {
       return this.voteData.votes.map(vote => {
+        const title = vote.bill.title || vote.description;
         vote.queryString = this.generateQuery(vote.vote_uri);
+        vote.shortTitle = this.generateShortTitle(title);
         return vote;
       });
     }
@@ -38,6 +51,10 @@ export default {
       const params = str.match(/(?<=v1\/)(.*)(?=.json)/)[0];
       const paramArr = params.split("/");
       return `congress=${paramArr[0]}&sessions=${paramArr[3]}&votes=${paramArr[5]}`;
+    },
+    generateShortTitle(title) {
+      const ellipsis = title.length > 150 ? "..." : "";
+      return title.slice(0, 150) + ellipsis;
     }
   }
 };

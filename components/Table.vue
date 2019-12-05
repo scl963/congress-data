@@ -2,10 +2,10 @@
   <table class="vote-table">
     <thead>
       <tr>
-        <th>Date</th>
-        <th>Bill Title</th>
-        <th>Vote Type</th>
-        <th>Result</th>
+        <th class="sticky-header">Date</th>
+        <th class="sticky-header">Bill Title</th>
+        <th class="sticky-header">Vote Type</th>
+        <th class="sticky-header">Result</th>
       </tr>
     </thead>
     <tbody>
@@ -41,10 +41,20 @@ export default {
   border-collapse: collapse;
   color: black !important;
   font-size: 14px;
+  height: 800px;
+  overflow: scroll;
   table-layout: fixed;
   text-align: center;
   text-decoration: none;
   width: 100%;
+
+  .sticky-header {
+    background: white;
+    border-bottom: 1px solid black;
+    box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 1);
+    position: sticky;
+    top: 70px;
+  }
 
   th,
   td {

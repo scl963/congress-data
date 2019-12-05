@@ -12,6 +12,7 @@
         <h4>{{ vote.bill.title || vote.description }}</h4>
       </nuxt-link>
     </div>
+    <button @click="loadMore">Load more...</button>
   </div>
 </template>
 
@@ -25,6 +26,10 @@ export default {
   props: {
     voteData: {
       type: Object,
+      default: () => {}
+    },
+    loadMore: {
+      type: Function,
       default: () => {}
     }
   },

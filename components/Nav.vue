@@ -1,13 +1,46 @@
 <template>
   <nav id="navbar">
-    <nuxt-link class="nav-link" to="/house/recent">House</nuxt-link>
-    <nuxt-link class="nav-link" to="/senate/recent">Senate</nuxt-link>
+    <nuxt-link
+      v-for="(link, idx) in links"
+      :key="idx"
+      class="nav-link"
+      :to="link.to"
+      >{{ link.text }}</nuxt-link
+    >
   </nav>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      links: [
+        {
+          to: "/",
+          text: "Home"
+        },
+        {
+          to: "/house/recent",
+          text: "House"
+        },
+        {
+          to: "/senate/recent",
+          text: "Senate"
+        }
+      ],
+      currentPage: "Home"
+    };
+  },
+  created() {
+    this.currentPage = this.links.find(
+      link => link.to === this.$router.currentRoute.path
+    ).text;
+  },
   mounted() {
+    this.currentPage = this.links.find(
+      link => link.to === this.$router.currentRoute.path
+    ).text;
+
     window.onscroll = function() {
       scrollFunction();
     };
@@ -22,6 +55,12 @@ export default {
         document.getElementById("navbar").setAttribute("class", "expanded");
       }
     }
+  },
+  methods: {
+    setCurrentPage(pageName) {
+      console.log(pageName);
+      this.currentPage = pageName;
+    }
   }
 };
 </script>
@@ -34,7 +73,6 @@ export default {
   width: 100%;
 
   &.collapsed {
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
     background: white;
     transition: all 0.2s ease;
   }
@@ -44,14 +82,23 @@ export default {
   color: black;
   display: inline-block;
   font-size: 20px;
-  margin: 24px 15px;
   text-decoration: none;
   z-index: 2;
 
-  &:hover {
+  &.selected {
     color: blue;
-    transform: scale(1.1);
-    transition: all 0.2s ease;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .nav-link {
+    margin: 24px 0px 24px 30px;
+
+    &:hover {
+      color: blue;
+      transform: scale(1.1);
+      transition: all 0.2s ease;
+    }
   }
 }
 </style>

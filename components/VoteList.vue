@@ -12,7 +12,7 @@
         <h4>{{ vote.bill.title || vote.description }}</h4>
       </nuxt-link>
     </div>
-    <button @click="loadMore">Load more...</button>
+    <button class="load-more-button" @click="loadMore">Load more...</button>
   </div>
 </template>
 
@@ -67,6 +67,9 @@ export default {
 
 <style lang="scss" scoped>
 .list-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   margin: 70px 2%;
 }
 
@@ -99,6 +102,28 @@ export default {
 
   &:hover {
     background: #e4e4e4;
+  }
+}
+
+.load-more-button {
+  border: none;
+  background: #404040;
+  color: #ffffff;
+  cursor: pointer;
+  margin-top: 40px;
+  padding: 20px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    color: #404040;
+    font-weight: 700;
+    letter-spacing: 3px;
+    background: none;
+    box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.3s ease 0s;
   }
 }
 </style>

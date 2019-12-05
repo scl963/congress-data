@@ -10,16 +10,26 @@
     </thead>
     <tbody>
       <tr v-for="(vote, idx) in votes" :key="idx">
-        <td>{{ vote.date }}</td>
+        <td>
+          <nuxt-link :to="`vote/?${vote.queryString}`">{{
+            vote.date
+          }}</nuxt-link>
+        </td>
         <td>
           <nuxt-link :to="`vote/?${vote.queryString}`">{{
             vote.shortTitle
           }}</nuxt-link>
         </td>
         <td style="text-transform: capitalize;">
-          {{ vote.vote_type.toLowerCase() }}
+          <nuxt-link :to="`vote/?${vote.queryString}`">
+            {{ vote.vote_type.toLowerCase() }}
+          </nuxt-link>
         </td>
-        <td>{{ vote.result }}</td>
+        <td>
+          <nuxt-link :to="`vote/?${vote.queryString}`">{{
+            vote.result
+          }}</nuxt-link>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -58,9 +68,16 @@ export default {
 
   th,
   td {
-    padding-bottom: 20px;
-    padding-top: 20px;
-    text-overflow: ellipsis;
+    a {
+      padding-bottom: 20px;
+      padding-top: 20px;
+      text-overflow: ellipsis;
+      color: black;
+      display: block;
+      height: 100%;
+      text-decoration: none;
+      width: 100%;
+    }
   }
 
   th {
@@ -69,11 +86,18 @@ export default {
   }
 
   tr {
-    :first-child {
+    cursor: pointer;
+    &:hover {
+      background: #f3f3f3;
+    }
+
+    :first-child a,
+    th:first-child {
       text-align: left;
     }
 
-    :last-child {
+    :last-child a,
+    th:last-child {
       text-align: right;
     }
   }

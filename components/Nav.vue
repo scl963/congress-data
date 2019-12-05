@@ -31,16 +31,7 @@ export default {
       currentPage: "Home"
     };
   },
-  created() {
-    this.currentPage = this.links.find(
-      link => link.to === this.$router.currentRoute.path
-    ).text;
-  },
   mounted() {
-    this.currentPage = this.links.find(
-      link => link.to === this.$router.currentRoute.path
-    ).text;
-
     window.onscroll = function() {
       scrollFunction();
     };
@@ -54,12 +45,6 @@ export default {
       } else {
         document.getElementById("navbar").setAttribute("class", "expanded");
       }
-    }
-  },
-  methods: {
-    setCurrentPage(pageName) {
-      console.log(pageName);
-      this.currentPage = pageName;
     }
   }
 };
@@ -85,7 +70,8 @@ export default {
   text-decoration: none;
   z-index: 2;
 
-  &.selected {
+  &.selected,
+  &.nuxt-link-exact-active {
     color: blue;
   }
 }

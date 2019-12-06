@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     generateQuery(str) {
-      const params = str.match(/(?<=v1\/)(.*)(?=.json)/)[0];
+      const params = str.match(/v1\/(.*).json/)[1];
       const paramArr = params.split("/");
       return `congress=${paramArr[0]}&sessions=${paramArr[3]}&votes=${paramArr[5]}`;
     },

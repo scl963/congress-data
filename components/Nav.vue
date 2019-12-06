@@ -52,13 +52,13 @@ export default {
 
 <style lang="scss" scoped>
 #navbar {
+  background: white;
   height: 70px;
   position: fixed;
   top: 0;
   width: 100%;
 
   &.collapsed {
-    background: white;
     transition: all 0.2s ease;
   }
 }

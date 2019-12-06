@@ -86,7 +86,10 @@ export default {
   }
 
   tr {
-    cursor: pointer;
+    &:not(:first-child) {
+      cursor: pointer;
+    }
+
     &:hover {
       background: #f3f3f3;
     }

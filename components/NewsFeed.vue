@@ -67,6 +67,17 @@ export default {
   & + .news-story {
     margin-top: 10px;
   }
+
+  .article-info {
+    max-width: 80%;
+  }
+
+  .preview-image {
+    border-radius: 8px;
+    height: 100px;
+    object-fit: cover;
+    width: 100px;
+  }
 }
 
 a {
@@ -76,12 +87,5 @@ a {
   &:hover {
     text-decoration: underline;
   }
-}
-
-.preview-image {
-  border-radius: 8px;
-  height: 100px;
-  object-fit: cover;
-  width: 100px;
 }
 </style>

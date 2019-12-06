@@ -1,5 +1,5 @@
 <template>
-  <VoteList :voteData="voteData" />
+  <VoteList :voteData="voteData" :loadMore="loadMore" />
 </template>
 
 <script>
@@ -20,6 +20,24 @@ export default {
       }
     );
     return { voteData: data.results };
+  },
+  data() {
+    return {
+      offset: 1
+    };
+  },
+  methods: {
+    async loadMore() {
+      let { data } = await axios.get(
+        `https://api.propublica.org/congress/v1/senate/votes/recent.json?offset=${this.offset}`,
+        {
+          headers: {
+            "X-API-Key": process.env.PROPUBLICA_API_KEY
+          }
+        }
+      );
+      this.voteData.votes = [...this.voteData.votes, ...data.results.votes];
+    }
   }
 };
 </script>

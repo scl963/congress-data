@@ -10,11 +10,6 @@ export default {
   components: {
     VoteList
   },
-  data() {
-    return {
-      offset: 1
-    };
-  },
   async asyncData() {
     let { data } = await axios.get(
       "https://api.propublica.org/congress/v1/house/votes/recent.json",
@@ -26,6 +21,11 @@ export default {
     );
     return { voteData: data.results };
   },
+  data() {
+    return {
+      offset: 1
+    };
+  },
   methods: {
     async loadMore() {
       let { data } = await axios.get(
@@ -36,8 +36,6 @@ export default {
           }
         }
       );
-      console.log(data);
-      console.log(this.voteData.votes);
       this.voteData.votes = [...this.voteData.votes, ...data.results.votes];
     }
   }

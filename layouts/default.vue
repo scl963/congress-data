@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <nuxt />
+    <nuxt id="content" />
   </div>
 </template>
 
@@ -35,5 +35,9 @@ html {
 
 body {
   margin: 0;
+}
+
+#content {
+  margin: 70px 2%;
 }
 </style>

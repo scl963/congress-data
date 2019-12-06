@@ -34,7 +34,8 @@ export default {
    */
   css: [],
   env: {
-    PROPUBLICA_API_KEY: process.env.PROPUBLICA_API_KEY
+    PROPUBLICA_API_KEY: process.env.PROPUBLICA_API_KEY,
+    NEWS_API_KEY: process.env.NEWS_API_KEY
   },
   /*
    ** Plugins to load before mounting the App
@@ -55,6 +56,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    // eslint-disable-next-line no-unused-vars
     extend(config, ctx) {}
   }
 };

@@ -70,7 +70,6 @@ export default {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 70px 2%;
 }
 
 .list-title {
